@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #000046; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper {
+  width: 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper header {
+  display: flex;
+  height: 55px;
+  position: relative;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+header label {
+  height: 100%;
+  width: 30%;
+  z-index: 2;
+  display: flex;
+  position: relative;
+  font-size: 18px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#tab-1:checked ~ header .tab-1,
+#tab-2:checked ~ header .tab-2,
+#tab-3:checked ~ header .tab-3 {
+  color: #fff;
+}
+
+header label:nth-child(2) {
+  width: 40%;
+}
+
+header .slider {
+  position: absolute;
+  height: 85%;
+  border-radius: inherit;
+  background: #f2994a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f2c94c,
+    #f2994a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f2c94c,
+    #f2994a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  transition: all 0.3s ease;
+}
+
+#tab-1:checked ~ header .slider {
+  left: 0%;
+  width: 90px;
+  transform: translateX(5%);
+}
+
+#tab-2:checked ~ header .slider {
+  left: 50%;
+  width: 120px;
+  transform: translateX(-50%);
+}
+
+#tab-3:checked ~ header .slider {
+  left: 100%;
+  width: 95px;
+  transform: translateX(-105%);
+}
+
+.wrapper input[type="radio"] {
+  display: none;
+}
+
+.cards-area {
+  overflow: hidden;
+}
+
+.cards-area .cards {
+  width: 300%;
+  display: flex;
+}
+
+.cards .row {
+  width: 33.4%;
+}
+
+.cards .row-1 {
+  transition: all 0.3s ease;
+}
+
+#tab-1:checked ~ .cards-area .cards .row-1 {
+  margin-left: 0%;
+}
+
+#tab-2:checked ~ .cards-area .cards .row-1 {
+  margin-left: -33.4%;
+}
+
+#tab-3:checked ~ .cards-area .cards .row-1 {
+  margin-left: -66.8%;
+}
+
+.row .pricing-details {
+  margin: 20px 0;
+  text-align: center;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.pricing-details span {
+  font-size: 65px;
+  font-weight: 600;
+  position: relative;
+}
+
+.pricing-details span::before,
+.pricing-details span::after {
+  position: absolute;
+  font-weight: 400;
+}
+
+.pricing-details span::before {
+  content: "₹";
+  font-size: 20px;
+  left: -13px;
+  top: 17px;
+}
+
+.pricing-details span::after {
+  content: "/mon";
+  font-size: 13px;
+  right: -33px;
+  bottom: 17px;
+}
+
+.pricing-details p {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.row .features li {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.features li i {
+  color: #77a5f8;
+}
+
+.features li span {
+  margin-left: 10px;
+}
+
+.wrapper button {
+  height: 55px;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 30px;
+  background: #000046; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  transition: transform 0.3s ease;
+}
+
+.wrapper button:hover {
+  transform: scale(0.98);
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    width: 300px;
+  }
+
+  #tab-1:checked ~ header .slider {
+    width: 65px;
+  }
+
+  #tab-2:checked ~ header .slider {
+    width: 90px;
+  }
+
+  #tab-3:checked ~ header .slider {
+    width: 65px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .wrapper {
+    width: 260px;
+  }
+
+  #tab-1:checked ~ header .slider {
+    width: 55px;
+  }
+
+  #tab-2:checked ~ header .slider {
+    width: 90px;
+  }
+
+  #tab-3:checked ~ header .slider {
+    width: 55px;
+  }
+}
